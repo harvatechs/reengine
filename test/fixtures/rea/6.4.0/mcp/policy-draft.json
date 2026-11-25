@@ -1,0 +1,1613 @@
+[
+  {
+    "name": "annotate_native_function",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "inspect_native_load_image",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "inspect_native_data_type",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "inspect_native_instruction",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "resolve_native_call_targets",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "address_name",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "comment",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "current_address",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "current_procedure",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "current_document",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "goto_address",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "inline_comment",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "list_bookmarks",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "list_documents",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "list_names",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "list_procedures",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "list_segments",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "list_strings",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "next_address",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "prev_address",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "procedure_address",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "procedure_assembly",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "procedure_callees",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "procedure_callers",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "procedure_info",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "read_function_instructions",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "read_bytes",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "address_to_file_offset",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "procedure_references",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "procedure_pseudo_code",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "resolve_containing_procedure",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "search_procedures",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "search_strings",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "set_address_name",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "set_addresses_names",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "set_bookmark",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "set_comment",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "set_inline_comment",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "unset_bookmark",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "xrefs",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "official-proxy"
+  },
+  {
+    "name": "trace_native_values",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "inspect_native_dispatch_metadata",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "get_objc_classes",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "get_objc_protocols",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "batch_decompile",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "get_call_graph",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "analyze_swift_types",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "find_xrefs_to_name",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "binary_overview",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "analyze_function",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "inspect_native_api",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "trace_feature",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "trace_call_path",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "trace_native_ui_action",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "enhanced"
+  },
+  {
+    "name": "observe_native_ui",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "capture_native_ui_scenario",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "observe_native_calls",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "inspect_macho",
+    "risk": "read",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "inspect_signature",
+    "risk": "read",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "inspect_plist",
+    "risk": "read",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "list_architectures",
+    "risk": "read",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "demangle_swift",
+    "risk": "read",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "inspect_artifact",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "artifact-provider"
+  },
+  {
+    "name": "extract_artifact",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "artifact-provider"
+  },
+  {
+    "name": "decode_interface_builder",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "artifact-provider"
+  },
+  {
+    "name": "inspect_keyed_archive",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": false,
+    "surface": "artifact-provider"
+  },
+  {
+    "name": "inspect_asset_catalog",
+    "risk": "read",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "artifact-provider"
+  },
+  {
+    "name": "trace_dylib_resolution",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "artifact-provider"
+  },
+  {
+    "name": "inspect_managed_artifact",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": false,
+    "surface": "managed-provider"
+  },
+  {
+    "name": "inspect_managed_members",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": false,
+    "surface": "managed-provider"
+  },
+  {
+    "name": "inspect_managed_native_boundaries",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": false,
+    "surface": "managed-provider"
+  },
+  {
+    "name": "compare_managed_members",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "verify_managed_native_boundaries",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "import_managed_reconstruction",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "project_managed_application_graph",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "inspect_android_package",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "android-provider"
+  },
+  {
+    "name": "search_android_classes",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "android-provider"
+  },
+  {
+    "name": "inspect_android_class",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "android-provider"
+  },
+  {
+    "name": "inspect_android_method",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "android-provider"
+  },
+  {
+    "name": "trace_android_references",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "android-provider"
+  },
+  {
+    "name": "inspect_jeb_client",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "jeb-provider"
+  },
+  {
+    "name": "open_jeb_project",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "jeb-provider"
+  },
+  {
+    "name": "list_jeb_units",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "parent_unit_path"
+    ],
+    "openWorld": true,
+    "surface": "jeb-provider"
+  },
+  {
+    "name": "decompile_jeb_item",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "unit_path"
+    ],
+    "openWorld": true,
+    "surface": "jeb-provider"
+  },
+  {
+    "name": "inspect_binary_layout",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "inspect_analysis_view",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "inspect_pe_resources",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": false,
+    "surface": "native-provider"
+  },
+  {
+    "name": "inspect_evm_interface",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "artifact-provider"
+  },
+  {
+    "name": "inspect_recorded_crash",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "native-provider"
+  },
+  {
+    "name": "inspect_firmware_regions",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "firmware-provider"
+  },
+  {
+    "name": "extract_firmware",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "firmware-provider"
+  },
+  {
+    "name": "trace_web_module_imports",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "manifest_path"
+    ],
+    "openWorld": true,
+    "surface": "application"
+  },
+  {
+    "name": "trace_web_source_location",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "manifest_path"
+    ],
+    "openWorld": true,
+    "surface": "application"
+  },
+  {
+    "name": "observe_web_execution",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "inspect_web_event_listeners",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "inspect_web_network_capture",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "capture_path"
+    ],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "recover_javascript_sources",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "application"
+  },
+  {
+    "name": "inspect_adb_client",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "list_adb_devices",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "inspect_adb_device",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "list_adb_packages",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "pull_adb_package",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "read_adb_logcat",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "inspect_adb_package",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "pull_adb_file",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "device_path"
+    ],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "push_adb_file",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "local_path",
+      "device_path"
+    ],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "capture_adb_screen",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "list_adb_processes",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "list_adb_directory",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "device_path"
+    ],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "list_adb_features",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "list_adb_services",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "inspect_adb_display",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "inspect_adb_window",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "read_adb_setting",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "collect_adb_bugreport",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "resolve_adb_packages",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "install_adb_package",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "apk_path"
+    ],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "uninstall_adb_package",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "start_adb_app",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "start_adb_activity",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "stop_adb_app",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "adb-provider"
+  },
+  {
+    "name": "inspect_apktool_client",
+    "risk": "read",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "apktool-provider"
+  },
+  {
+    "name": "decode_android_resources",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": true,
+    "surface": "apktool-provider"
+  },
+  {
+    "name": "export_web_scripts",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "capture_path"
+    ],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "list_browser_targets",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "inspect_web_page",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "analyze_web_bundle",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "observe_web_session",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "discover_webmcp_tools",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "compare_web_captures",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "capture_web_screenshot",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "compare_web_screenshots",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "capture_browser_scenario",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "browser-provider"
+  },
+  {
+    "name": "list_electron_targets",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "electron-provider"
+  },
+  {
+    "name": "inspect_electron_page",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "electron-provider"
+  },
+  {
+    "name": "analyze_javascript_application",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [
+      "input_path"
+    ],
+    "openWorld": false,
+    "surface": "electron-provider"
+  },
+  {
+    "name": "reconcile_javascript_runtime",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "electron-provider"
+  },
+  {
+    "name": "capture_electron_scenario",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [
+      "executable_path",
+      "application_path"
+    ],
+    "openWorld": true,
+    "surface": "electron-provider"
+  },
+  {
+    "name": "list_javascript_runtime_targets",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "runtime-provider"
+  },
+  {
+    "name": "observe_javascript_runtime",
+    "risk": "network",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "runtime-provider"
+  },
+  {
+    "name": "trace_application_feature",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "trace_javascript_semantics",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "compare_application_versions",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "compare_source_to_bundle",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "compare_javascript_export_shapes",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [
+      "left_module_path",
+      "right_module_path"
+    ],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "build_reconstruction_obligation_ledger",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "evaluate_reconstruction_coverage",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "project_android_application_graph",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "project_apple_application_graph",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "application"
+  },
+  {
+    "name": "open_binary",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [
+      "path",
+      "snapshot_path"
+    ],
+    "openWorld": true,
+    "surface": "session"
+  },
+  {
+    "name": "close_binary",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "snapshot_path"
+    ],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "binary_session",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [
+      "expected_server_path"
+    ],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "export_evidence_bundle",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "import_evidence_bundle",
+    "risk": "write",
+    "readOnly": false,
+    "longRunning": false,
+    "pathArgs": [
+      "path"
+    ],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "get_evidence_bundle",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "capture_process_scenario",
+    "risk": "exec",
+    "readOnly": false,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": true,
+    "surface": "session"
+  },
+  {
+    "name": "compare_process_captures",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "compare_artifacts",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "compare_functions",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "compare_bundles",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": true,
+    "pathArgs": [
+      "left_bundle_path",
+      "right_bundle_path"
+    ],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "find_changed_behavior",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "build_call_path",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "correlate_static_and_runtime",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "verify_reconstruction",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "list_unknowns",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "record_unknown",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "update_unknown",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "verify_unknown_resolution",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "get_navigation_context",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  },
+  {
+    "name": "inspect_address_context",
+    "risk": "read",
+    "readOnly": true,
+    "longRunning": false,
+    "pathArgs": [],
+    "openWorld": false,
+    "surface": "session"
+  }
+]

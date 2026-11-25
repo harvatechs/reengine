@@ -1,0 +1,6 @@
+{
+  "name": "reengine-js-fixture",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "Minimal deterministic Electron/JS fixture for ReEngine REA contract tests"
+}
