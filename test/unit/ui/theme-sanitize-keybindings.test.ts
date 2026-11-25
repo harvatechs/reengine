@@ -4,6 +4,7 @@ import {
   exportThemeForTerminal,
   loadKeybindings,
   measureDisplayWidth,
+  renderBrandLogoAnsi,
   resolveTheme,
   sanitizeTerminalText,
   tokenizeAsmLine,
@@ -64,5 +65,10 @@ describe('src/ui themes, exporters, sanitize, keybindings, asm tokenizer (P5/P6)
     expect(toks.some((t) => t.kind === 'register')).toBe(true);
     expect(toks.some((t) => t.kind === 'immediate')).toBe(true);
     expect(toks.some((t) => t.kind === 'comment')).toBe(true);
+
+    const ansiLogo = renderBrandLogoAnsi({ colorDepth: 'truecolor', unicode: true, plain: false });
+    expect(ansiLogo).toContain('▄████');
+    const plainLogo = renderBrandLogoAnsi({ colorDepth: 'none', unicode: false, plain: true });
+    expect(plainLogo).toContain('.####');
   });
 });

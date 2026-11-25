@@ -31,6 +31,8 @@ describe('src/ui ReengineApp Ink rendering (P5-05..P5-11)', () => {
     );
 
     const frame0 = inst.lastFrame() ?? '';
+    expect(frame0).toContain('▄████');
+    expect(frame0).toContain('Welcome to ReEngine CLI!');
     expect(frame0).toContain('ReEngine 0.1.0');
     expect(frame0).toContain('mock/gpt-test');
     expect(frame0).toContain('REA ● auto');

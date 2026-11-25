@@ -3,6 +3,7 @@ export * from './sanitize.js';
 export * from './keybindings.js';
 export * from './store.js';
 export * from './App.js';
+export * from './components/BrandLogo.js';
 export * from './components/CodeBlock.js';
 export * from './components/Markdown.js';
 export * from './components/EvidenceBadge.js';

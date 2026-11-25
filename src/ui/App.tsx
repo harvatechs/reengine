@@ -7,6 +7,7 @@ import { createInitialUiState, uiReducer, type InspectorEngineView } from './sto
 import { REENGINE_DARK } from './theme/builtins.js';
 import { ThemeProvider } from './theme/context.js';
 import type { ThemeDefinition } from './theme/schema.js';
+import { BrandLogo } from './components/BrandLogo.js';
 import { Composer } from './components/Composer.js';
 import { DetailViewer, HelpOverlay } from './components/DetailViewer.js';
 import { Inspector } from './components/Inspector.js';
@@ -120,11 +121,7 @@ export function ReengineApp(props: ReengineAppProps) {
         <Static items={state.staticItems}>
           {(item) => {
             if (item.kind === 'banner') {
-              return (
-                <Text key={item.id} dimColor>
-                  {sanitizeTerminalText(item.text)}
-                </Text>
-              );
+              return <BrandLogo key={item.id} banner={item.text} />;
             }
             if (item.kind === 'user') {
               return (

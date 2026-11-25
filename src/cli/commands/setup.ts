@@ -3,7 +3,8 @@ import * as path from 'node:path';
 import type { Command } from 'commander';
 import { addConfiguredProvider } from '../../app/providers-service.js';
 import { writeConfigEdit } from '../../config/index.js';
-import { resolveRuntimePaths } from '../../platform/index.js';
+import { detectTerminalCapabilities, resolveRuntimePaths } from '../../platform/index.js';
+import { renderBrandLogoAnsi } from '../../ui/theme/brand-logo.js';
 
 export function registerSetupCommand(program: Command, stdout: NodeJS.WritableStream): void {
   program
@@ -29,6 +30,14 @@ export function registerSetupCommand(program: Command, stdout: NodeJS.WritableSt
         JSON.stringify({ acknowledgedAt: new Date().toISOString(), version: '1.0.0' }, null, 2) +
           '\n',
         'utf-8',
+      );
+      const term = detectTerminalCapabilities();
+      stdout.write(
+        renderBrandLogoAnsi({
+          colorDepth: term.colorDepth,
+          unicode: term.unicode,
+          plain: !term.isTTY,
+        }),
       );
       stdout.write(
         `Setup complete (${paths.configFile}). ReEngine is for authorized reverse-engineering only.\n`,
