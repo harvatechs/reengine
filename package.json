@@ -80,7 +80,7 @@
     "jsonc-parser": "3.3.1",
     "marked": "18.3.0",
     "pino": "10.4.0",
-    "rea-agents": "6.4.0",
+    "rea-agents": "6.10.1",
     "react": "18.3.1",
     "string-width": "9.0.0",
     "undici": "8.13.1",
