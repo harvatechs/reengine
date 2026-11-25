@@ -4,6 +4,24 @@
   "description": "Open reverse-engineering harness: any model, REA built in, themeable terminal UI.",
   "type": "module",
   "license": "MIT",
+  "author": "Harsha Vardhan <harvatechs@gmail.com>",
+  "homepage": "https://github.com/harvatechs/reengine#readme",
+  "bugs": {
+    "url": "https://github.com/harvatechs/reengine/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harvatechs/reengine.git"
+  },
+  "keywords": [
+    "reverse-engineering",
+    "cli",
+    "mcp",
+    "rea",
+    "llm",
+    "terminal-ui",
+    "ink"
+  ],
   "bin": {
     "reengine": "bin/reengine.js",
     "ree": "bin/reengine.js"
@@ -38,7 +56,7 @@
     "schema:check": "npm run schema:gen && git diff --exit-code schemas",
     "test": "vitest run",
     "test:e2e": "vitest run --project e2e",
-    "test:rea": "vitest run --project rea-real",
+    "test:rea": "vitest run test/integration/engine/rea-real.test.ts",
     "contract:rea": "tsx scripts/capture-rea-contract.ts --check",
     "pack:check": "tsx scripts/check-pack.ts",
     "verify": "npm run typecheck && npm run lint && npm run format:check && npm run deps:check && npm run unused && npm run schema:check && vitest run --coverage && npm run build && npm run pack:check",

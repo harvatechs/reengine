@@ -1,0 +1,37 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in ReEngine CLI
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue! Please fill out the details below so we can reproduce and fix it quickly.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Clear description of the bug and what you expected to happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal command(s) or steps to reproduce the issue.
+      placeholder: |
+        1. Run `reengine ...`
+        2. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Output of `reengine version` and `reengine doctor --json` (redact any local paths if needed).
+      placeholder: |
+        - OS:
+        - Node.js:
+        - ReEngine CLI version:
+    validations:
+      required: true

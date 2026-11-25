@@ -1,5 +1,10 @@
 # ReEngine CLI (`reengine` / `ree`)
 
+[![CI](https://github.com/harvatechs/reengine/actions/workflows/ci.yml/badge.svg)](https://github.com/harvatechs/reengine/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/harvatechs/reengine/actions/workflows/codeql.yml/badge.svg)](https://github.com/harvatechs/reengine/actions/workflows/codeql.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%5E22.19.0%20%7C%7C%20%5E24.11.0%20%7C%7C%20%3E%3D26-brightgreen)](package.json)
+
 A model-agnostic, security-first reverse-engineering terminal harness that embeds **REA** (`rea-agents`) as a supervised built-in MCP engine, paired with a themeable Ink/React terminal UI and a deterministic headless automation runner.
 
 ---
@@ -160,3 +165,11 @@ npm run verify
 ```
 
 `npm run verify` runs strict TypeScript typechecking, ESLint (`complexity <= 15`, `max-lines <= 400`, `no-ui-literals`, `no-console`), Prettier, `dependency-cruiser` layer boundary checks, `knip`, JSON Schema parity, Vitest + coverage, `tsup` build, and `pack:check`.
+
+---
+
+## Contributing & License
+
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for architecture boundaries and contribution guidelines.
+- See [SECURITY.md](SECURITY.md) for reporting vulnerabilities.
+- Released under the [MIT License](LICENSE). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for third-party attributions.

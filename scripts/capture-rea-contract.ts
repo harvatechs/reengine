@@ -5,24 +5,19 @@ import * as path from 'node:path';
 const require = createRequire(import.meta.url);
 
 function resolveSdkModule(subpath: string): string {
-  const candidates = [
-    path.resolve(process.cwd(), 'node_modules/@modelcontextprotocol/sdk', subpath),
-    path.resolve(
-      'C:/Users/zoltr/.gemini/antigravity/brain/cee22158-8f18-4438-8bdb-6bab37e2916f/scratch/rea-p0/node_modules/@modelcontextprotocol/sdk',
-      subpath,
-    ),
-  ];
-  for (const c of candidates) {
-    if (fs.existsSync(c)) return c;
-  }
+  const localPath = path.resolve(process.cwd(), 'node_modules/@modelcontextprotocol/sdk', subpath);
+  if (fs.existsSync(localPath)) return localPath;
+  const pkgEntry = require.resolve('@modelcontextprotocol/sdk/package.json');
+  const resolvedPath = path.resolve(path.dirname(pkgEntry), subpath);
+  if (fs.existsSync(resolvedPath)) return resolvedPath;
   throw new Error(`Could not resolve @modelcontextprotocol/sdk/${subpath}`);
 }
 
 function resolveReaEntry(): { entry: string; version: string } {
   const localPkgPath = path.resolve(process.cwd(), 'node_modules/rea-agents/package.json');
-  const scratchPkgPath =
-    'C:/Users/zoltr/.gemini/antigravity/brain/cee22158-8f18-4438-8bdb-6bab37e2916f/scratch/rea-p0/node_modules/rea-agents/package.json';
-  const pkgPath = fs.existsSync(localPkgPath) ? localPkgPath : scratchPkgPath;
+  const pkgPath = fs.existsSync(localPkgPath)
+    ? localPkgPath
+    : require.resolve('rea-agents/package.json');
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8')) as {
     version: string;
     bin?: Record<string, string>;
