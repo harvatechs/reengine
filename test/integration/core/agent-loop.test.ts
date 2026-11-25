@@ -57,6 +57,10 @@ describe('Phase 3 E2E headless agent loop (P3-09..P3-13)', () => {
       ],
       { stdout: cfgOut.stream, stderr: cfgErr.stream },
     );
+    await runCli(['node', 'reengine', 'config', 'set', 'engine.rea.enabled', 'false'], {
+      stdout: cfgOut.stream,
+      stderr: cfgErr.stream,
+    });
 
     mock.enqueue({
       sseChunks: [

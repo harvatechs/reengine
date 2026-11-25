@@ -3,7 +3,6 @@
   "entry": ["scripts/*.ts", "scripts/*.mjs"],
   "project": ["src/**/*.ts", "test/**/*.ts", "scripts/**/*.ts"],
   "ignoreDependencies": [
-    "@modelcontextprotocol/sdk",
     "execa",
     "highlight.js",
     "ink",

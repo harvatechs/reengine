@@ -150,13 +150,17 @@ export function createUtilityTools(options: {
 }
 
 export function createAjvValidator(): (tool: Tool, args: unknown) => string | null {
-  const AjvCtor = AjvModule as unknown as new (opts: { allErrors: boolean; strict: boolean }) => {
+  const AjvCtor = AjvModule as unknown as new (opts: {
+    allErrors: boolean;
+    strict: boolean;
+    validateSchema: boolean;
+  }) => {
     compile: (schema: Record<string, unknown>) => {
       (data: unknown): boolean;
       errors?: Array<{ instancePath?: string; message?: string }>;
     };
   };
-  const ajv = new AjvCtor({ allErrors: true, strict: false });
+  const ajv = new AjvCtor({ allErrors: true, strict: false, validateSchema: false });
   const addFormats = addFormatsModule as unknown as (instance: unknown) => void;
   addFormats(ajv);
   const cache = new Map<string, ReturnType<typeof ajv.compile>>();
@@ -164,7 +168,9 @@ export function createAjvValidator(): (tool: Tool, args: unknown) => string | nu
   return (tool: Tool, args: unknown): string | null => {
     let validate = cache.get(tool.name);
     if (!validate) {
-      validate = ajv.compile(tool.inputSchema);
+      const cleanSchema = { ...tool.inputSchema };
+      delete cleanSchema.$schema;
+      validate = ajv.compile(cleanSchema);
       cache.set(tool.name, validate);
     }
     const valid = validate(args);

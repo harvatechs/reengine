@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { Command, CommanderError } from 'commander';
 import { registerCompletionCommand } from './commands/completion.js';
 import { registerConfigCommand } from './commands/config.js';
+import { registerEngineCommands } from './commands/engine.js';
+import { registerMcpCommands } from './commands/mcp.js';
 import { registerProvidersCommands } from './commands/providers.js';
 import { registerRunCommand } from './commands/run.js';
 import { registerSessionsCommand } from './commands/sessions.js';
@@ -75,6 +77,8 @@ export async function runCli(
   registerProvidersCommands(program, io.stdout);
   registerRunCommand(program, io.stdout, io.stderr);
   registerSessionsCommand(program, io.stdout);
+  registerEngineCommands(program, io.stdout);
+  registerMcpCommands(program, io.stdout);
   registerCompletionCommand(program, io.stdout);
 
   try {

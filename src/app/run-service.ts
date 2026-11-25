@@ -22,6 +22,7 @@ import {
 } from '../config/index.js';
 import { resolveRuntimePaths } from '../platform/index.js';
 import { createProvider, splitModelRef } from '../providers/index.js';
+import { startEngineForSession } from './engine-service.js';
 import {
   createAjvValidator,
   createReadTools,
@@ -174,6 +175,35 @@ function initSessionForRun(
   return session;
 }
 
+async function resolveEngineForRun(
+  config: ReengineConfig,
+  cwd: string,
+  options: HeadlessRunOptions,
+): Promise<{
+  supervisor: Awaited<ReturnType<typeof startEngineForSession>>['supervisor'] | undefined;
+  engineStatus: string;
+  engineTools: Tool[];
+  targetDirs: string[];
+}> {
+  let supervisor: Awaited<ReturnType<typeof startEngineForSession>>['supervisor'] | undefined;
+  let engineStatus = options.engineStatus ?? (config.engine.rea.enabled ? 'ready' : 'disabled');
+  let engineTools: Tool[] = [];
+  let targetDirs: string[] = [...config.permissions.additionalDirectories];
+
+  if (config.engine.rea.enabled && options.engineStatus === undefined) {
+    try {
+      const started = await startEngineForSession(cwd, options.targets ?? []);
+      supervisor = started.supervisor;
+      engineTools = supervisor.getTools();
+      engineStatus = supervisor.getState();
+      targetDirs = [...targetDirs, ...started.targets.list()];
+    } catch {
+      engineStatus = 'unavailable';
+    }
+  }
+  return { supervisor, engineStatus, engineTools, targetDirs };
+}
+
 export async function runHeadlessTurn(options: HeadlessRunOptions): Promise<HeadlessRunResult> {
   const cwd = options.cwd ?? process.cwd();
   const paths = resolveRuntimePaths();
@@ -198,13 +228,17 @@ export async function runHeadlessTurn(options: HeadlessRunOptions): Promise<Head
     config.context.memoryFiles,
     config.context.maxMemoryBytes,
   );
-  const engineStatus = options.engineStatus ?? (config.engine.rea.enabled ? 'ready' : 'disabled');
-  const permState = { unavailable: false };
+  const { supervisor, engineStatus, engineTools, targetDirs } = await resolveEngineForRun(
+    config,
+    cwd,
+    options,
+  );
 
+  const permState = { unavailable: false };
   const agent = new AgentSession({
     provider,
     model: modelId,
-    tools: buildBuiltinTools(config, session, options.extraTools ?? []),
+    tools: buildBuiltinTools(config, session, [...engineTools, ...(options.extraTools ?? [])]),
     session,
     cwd,
     workspaceRoot: path.resolve(cwd),
@@ -217,7 +251,7 @@ export async function runHeadlessTurn(options: HeadlessRunOptions): Promise<Head
       deny: config.permissions.deny,
     },
     taintGuard: config.permissions.taintGuard,
-    additionalDirectories: config.permissions.additionalDirectories,
+    additionalDirectories: targetDirs,
     maxSteps: options.maxSteps ?? config.model.maxSteps,
     maxOutputTokens: config.model.maxOutputTokens,
     temperature: config.model.temperature,
@@ -236,7 +270,18 @@ export async function runHeadlessTurn(options: HeadlessRunOptions): Promise<Head
     },
   });
 
-  return collectAgentStream(agent, options, session.sessionId, modelRef, engineStatus, permState);
+  try {
+    return await collectAgentStream(
+      agent,
+      options,
+      session.sessionId,
+      modelRef,
+      engineStatus,
+      permState,
+    );
+  } finally {
+    await supervisor?.stop();
+  }
 }
 
 async function collectAgentStream(
