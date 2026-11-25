@@ -1,5 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import sea from 'node:sea';
 import { fileURLToPath } from 'node:url';
 import { Command, CommanderError } from 'commander';
 import { registerCompletionCommand } from './commands/completion.js';
@@ -21,7 +22,10 @@ interface PackageMeta {
 }
 
 function readPackageMeta(): PackageMeta {
-  const here = path.dirname(fileURLToPath(import.meta.url));
+  const here =
+    typeof import.meta.url === 'string' && import.meta.url
+      ? path.dirname(fileURLToPath(import.meta.url))
+      : path.dirname(process.execPath);
   const candidates = [
     path.resolve(here, '../../package.json'),
     path.resolve(here, '../package.json'),
@@ -34,12 +38,12 @@ function readPackageMeta(): PackageMeta {
         dependencies?: Record<string, string>;
       };
       return {
-        version: parsed.version ?? '0.0.0',
-        reaVersion: parsed.dependencies?.['rea-agents'] ?? 'unknown',
+        version: parsed.version ?? '0.1.0',
+        reaVersion: parsed.dependencies?.['rea-agents'] ?? '6.4.0',
       };
     }
   }
-  return { version: '0.0.0', reaVersion: 'unknown' };
+  return { version: '0.1.0', reaVersion: '6.4.0' };
 }
 
 export interface CliIo {
@@ -141,12 +145,14 @@ export async function runCli(
 }
 
 const isEntrypoint =
-  process.argv[1] !== undefined &&
-  (process.argv[1].endsWith('cli.js') ||
-    process.argv[1].endsWith('reengine.js') ||
-    process.argv[1].endsWith('main.ts'));
+  sea.isSea() ||
+  (process.argv[1] !== undefined &&
+    (process.argv[1].endsWith('cli.js') ||
+      process.argv[1].endsWith('reengine.js') ||
+      process.argv[1].endsWith('main.ts')));
 
 if (isEntrypoint) {
-  const exitCode = await runCli(process.argv);
-  process.exitCode = exitCode;
+  void runCli(process.argv).then((exitCode) => {
+    process.exitCode = exitCode;
+  });
 }

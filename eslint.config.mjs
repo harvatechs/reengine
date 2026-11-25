@@ -35,6 +35,7 @@ export default tseslint.config(
   {
     ignores: [
       'dist/**',
+      'dist-exe/**',
       'node_modules/**',
       'coverage/**',
       'test/fixtures/**',

@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "tsup",
+    "build:exe": "node scripts/build-exe.mjs",
     "dev": "tsx src/cli/main.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

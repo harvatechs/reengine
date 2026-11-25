@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import sea from 'node:sea';
 import { fileURLToPath } from 'node:url';
 import type { Command } from 'commander';
 import { formatConfigForDisplay, loadConfig, writeConfigEdit } from '../../config/index.js';
@@ -28,7 +29,10 @@ function parseValueInput(raw: string): unknown {
 }
 
 function findBundledSchemaPath(): string {
-  const here = path.dirname(fileURLToPath(import.meta.url));
+  const here =
+    typeof import.meta.url === 'string' && import.meta.url
+      ? path.dirname(fileURLToPath(import.meta.url))
+      : path.dirname(process.execPath);
   const candidates = [
     path.resolve(here, '../../schemas/config.v1.schema.json'),
     path.resolve(here, '../../../schemas/config.v1.schema.json'),
@@ -117,6 +121,14 @@ export function registerConfigCommand(
     .command('schema')
     .description('Print the JSON Schema for config v1')
     .action(() => {
+      if (sea.isSea()) {
+        try {
+          stdout.write(sea.getAsset('config.v1.schema.json', 'utf8'));
+          return;
+        } catch {
+          // fall back to filesystem
+        }
+      }
       const schemaPath = findBundledSchemaPath();
       stdout.write(fs.readFileSync(schemaPath, 'utf-8'));
     });

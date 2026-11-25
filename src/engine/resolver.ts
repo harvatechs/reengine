@@ -32,17 +32,13 @@ function tryReadVersion(bin: string, prefixArgs: string[]): string | undefined {
   }
 }
 
-export function resolveReaBinary(options: ReaResolveOptions = {}): ResolvedReaCommand {
-  if (options.configCommand) {
-    return {
-      command: options.configCommand,
-      args: options.configArgs ?? ['--mcp'],
-      source: 'config',
-    };
-  }
-
+function resolveBundledRea(): ResolvedReaCommand | null {
   try {
-    const req = createRequire(import.meta.url);
+    const metaUrl =
+      typeof import.meta.url === 'string' && import.meta.url
+        ? import.meta.url
+        : path.join(process.cwd(), 'package.json');
+    const req = createRequire(metaUrl);
     const pkgJsonPath = req.resolve('rea-agents/package.json');
     const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf-8')) as {
       version?: string;
@@ -63,6 +59,20 @@ export function resolveReaBinary(options: ReaResolveOptions = {}): ResolvedReaCo
   } catch {
     // Fall through to PATH / npx
   }
+  return null;
+}
+
+export function resolveReaBinary(options: ReaResolveOptions = {}): ResolvedReaCommand {
+  if (options.configCommand) {
+    return {
+      command: options.configCommand,
+      args: options.configArgs ?? ['--mcp'],
+      source: 'config',
+    };
+  }
+
+  const bundled = resolveBundledRea();
+  if (bundled) return bundled;
 
   const pathBin = process.platform === 'win32' ? 'rea.cmd' : 'rea';
   const ver = tryReadVersion(pathBin, []);

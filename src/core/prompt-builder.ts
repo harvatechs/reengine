@@ -1,5 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import sea from 'node:sea';
 import { fileURLToPath } from 'node:url';
 import type { PermissionMode } from './contracts.js';
 
@@ -16,7 +17,10 @@ export interface PromptBuildInput {
 }
 
 function resolvePromptDir(): string {
-  const here = path.dirname(fileURLToPath(import.meta.url));
+  const here =
+    typeof import.meta.url === 'string' && import.meta.url
+      ? path.dirname(fileURLToPath(import.meta.url))
+      : path.dirname(process.execPath);
   const candidates = [
     path.resolve(here, 'prompt'),
     path.resolve(here, '../src/core/prompt'),
@@ -32,6 +36,13 @@ function resolvePromptDir(): string {
 }
 
 function readPromptModule(promptDir: string, name: string): string {
+  if (sea.isSea()) {
+    try {
+      return sea.getAsset(`prompt/${name}`, 'utf8').trim();
+    } catch {
+      // fall back to filesystem
+    }
+  }
   return fs.readFileSync(path.join(promptDir, name), 'utf-8').trim();
 }
 
