@@ -23,7 +23,7 @@
 | **G1** | Phase 1 (Foundation) | CI green on 3 OS × Node 22/24; `version`/`config` work; layering, trust, secrets, schema parity pass | `docs/gates/G1.md` | PASSED |
 | **G1.5** | Contracts Freeze | `src/core/contracts.ts` matches `specs.md` §4 + type tests; tagged `gate-G1.5` | `docs/gates/G1.5.md` | PASSED |
 | **G2** | Phase 2 (Providers) | Shared contract suite green for 3 adapters on mock LLM; 12 presets validated; `providers test` works | `docs/gates/G2.md` | PASSED |
-| **G3** | Phase 3 (Core & Tools) | `reengine run` completes multi-step tool loop on mock LLM (permissions, spill, compaction, cancel, resume) | `docs/gates/G3.md` | PENDING |
+| **G3** | Phase 3 (Core & Tools) | `reengine run` completes multi-step tool loop on mock LLM (permissions, spill, compaction, cancel, resume) | `docs/gates/G3.md` | PASSED |
 | **G4** | Phase 4 (MCP & REA) | Headless run analyzes JS fixture via real pinned REA; doctor, drift test, policy completeness, 0 orphans | `docs/gates/G4.md` | PENDING |
 | **G5** | Phase 5 (UI) | All FR-UI M items verified; `ink-testing-library` green; terminal restore & exporter golden tests pass | `docs/gates/G5.md` | PENDING |
 | **G6** | Phase 6 (RE Polish) | Evidence UI, asm highlighting, spill UX, `/report`, auto-snapshot, `REENGINE.md`/`/init`, first-run gate | `docs/gates/G6.md` | PENDING |
@@ -74,3 +74,4 @@
 | P1-08 | DONE | 2026-11-25 | [P1-08](progress/P1-08.md) · [G1.5.md](gates/G1.5.md) | `src/core/contracts.ts` frozen (`gate-G1.5`) |
 | P1-09 | DONE | 2026-11-25 | [P1-09](progress/P1-09.md) · [G1.md](gates/G1.md) | `src/cli/` skeleton, `version`, `config *`, `completion`, `install-smoke` (`gate-G1`) |
 | P2-01..09 | DONE | 2026-11-25 | [P2-01](progress/P2-01.md) · [G2.md](gates/G2.md) | SSE parser, `HttpClient`, 3 provider adapters, 12 presets, `mock-llm`, contract suite, `providers`/`models` CLI (`gate-G2`) |
+| P3-01..13 | DONE | 2026-11-25 | [P3-01](progress/P3-01.md) · [G3.md](gates/G3.md) | Session/artifact store, tokens, prompt builder, permissions, built-in tools, compaction, agent loop, `run` & `sessions` CLI (`gate-G3`) |

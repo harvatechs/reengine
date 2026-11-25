@@ -1,3 +1,4 @@
+import * as fs from 'node:fs';
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
@@ -9,6 +10,10 @@ export default defineConfig({
   splitting: true,
   clean: true,
   dts: false,
+  onSuccess: async () => {
+    fs.cpSync('src/core/prompt', 'dist/prompt', { recursive: true });
+    await Promise.resolve();
+  },
   loader: {
     '.md': 'text',
   },

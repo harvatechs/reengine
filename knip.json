@@ -4,13 +4,8 @@
   "project": ["src/**/*.ts", "test/**/*.ts", "scripts/**/*.ts"],
   "ignoreDependencies": [
     "@modelcontextprotocol/sdk",
-    "ajv",
-    "ajv-formats",
-    "diff",
     "execa",
-    "fast-glob",
     "highlight.js",
-    "ignore",
     "ink",
     "marked",
     "rea-agents",
