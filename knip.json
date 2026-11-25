@@ -16,7 +16,6 @@
     "rea-agents",
     "react",
     "string-width",
-    "undici",
     "wrap-ansi",
     "@types/react",
     "ink-testing-library"

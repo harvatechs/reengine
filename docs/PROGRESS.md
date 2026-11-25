@@ -22,7 +22,7 @@
 | **G0** | Phase 0 (Discovery) | P0-01…P0-10 complete; REA CLI/MCP & provider wire fixtures + contract docs committed; deps pinned; A1–A5 logged | `docs/gates/G0.md` | PASSED |
 | **G1** | Phase 1 (Foundation) | CI green on 3 OS × Node 22/24; `version`/`config` work; layering, trust, secrets, schema parity pass | `docs/gates/G1.md` | PASSED |
 | **G1.5** | Contracts Freeze | `src/core/contracts.ts` matches `specs.md` §4 + type tests; tagged `gate-G1.5` | `docs/gates/G1.5.md` | PASSED |
-| **G2** | Phase 2 (Providers) | Shared contract suite green for 3 adapters on mock LLM; 12 presets validated; `providers test` works | `docs/gates/G2.md` | PENDING |
+| **G2** | Phase 2 (Providers) | Shared contract suite green for 3 adapters on mock LLM; 12 presets validated; `providers test` works | `docs/gates/G2.md` | PASSED |
 | **G3** | Phase 3 (Core & Tools) | `reengine run` completes multi-step tool loop on mock LLM (permissions, spill, compaction, cancel, resume) | `docs/gates/G3.md` | PENDING |
 | **G4** | Phase 4 (MCP & REA) | Headless run analyzes JS fixture via real pinned REA; doctor, drift test, policy completeness, 0 orphans | `docs/gates/G4.md` | PENDING |
 | **G5** | Phase 5 (UI) | All FR-UI M items verified; `ink-testing-library` green; terminal restore & exporter golden tests pass | `docs/gates/G5.md` | PENDING |
@@ -73,3 +73,4 @@
 | P1-07 | DONE | 2026-11-25 | [P1-07](progress/P1-07.md) | `src/config/trust.ts` (`trust.json` gated-subset SHA-256) |
 | P1-08 | DONE | 2026-11-25 | [P1-08](progress/P1-08.md) · [G1.5.md](gates/G1.5.md) | `src/core/contracts.ts` frozen (`gate-G1.5`) |
 | P1-09 | DONE | 2026-11-25 | [P1-09](progress/P1-09.md) · [G1.md](gates/G1.md) | `src/cli/` skeleton, `version`, `config *`, `completion`, `install-smoke` (`gate-G1`) |
+| P2-01..09 | DONE | 2026-11-25 | [P2-01](progress/P2-01.md) · [G2.md](gates/G2.md) | SSE parser, `HttpClient`, 3 provider adapters, 12 presets, `mock-llm`, contract suite, `providers`/`models` CLI (`gate-G2`) |

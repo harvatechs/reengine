@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { EXIT_CODES, mapErrorToExitCode } from '../../../src/cli/exit-codes.js';
 import { runCli } from '../../../src/cli/main.js';
 import { ConfigError, EngineError, PermissionError } from '../../../src/util/index.js';
+import { startMockLlmServer } from '../../mocks/mock-llm.js';
 
 function createBufferStream(): { stream: PassThrough; read: () => string } {
   const stream = new PassThrough();
@@ -137,5 +138,72 @@ describe('src/cli (P1-09)', () => {
         stderr: badErr.stream,
       }),
     ).toBe(EXIT_CODES.USAGE_OR_CONFIG);
+  });
+
+  it('manages providers and probes models against mock LLM', async () => {
+    const mock = await startMockLlmServer();
+    try {
+      const o1 = createBufferStream();
+      const e1 = createBufferStream();
+      expect(
+        await runCli(['node', 'reengine', 'providers', 'presets'], {
+          stdout: o1.stream,
+          stderr: e1.stream,
+        }),
+      ).toBe(0);
+      expect(o1.read()).toContain('openrouter');
+
+      const o2 = createBufferStream();
+      const e2 = createBufferStream();
+      expect(
+        await runCli(
+          [
+            'node',
+            'reengine',
+            'providers',
+            'add',
+            'localmock',
+            '--type',
+            'openai-compatible',
+            '--base-url',
+            `${mock.url}/v1`,
+          ],
+          { stdout: o2.stream, stderr: e2.stream },
+        ),
+      ).toBe(0);
+
+      mock.enqueue({ json: { data: [{ id: 'mock-gpt' }] } });
+      const o3 = createBufferStream();
+      const e3 = createBufferStream();
+      expect(
+        await runCli(['node', 'reengine', 'providers', 'test', 'localmock'], {
+          stdout: o3.stream,
+          stderr: e3.stream,
+        }),
+      ).toBe(0);
+      expect(o3.read()).toContain('1 models available');
+
+      mock.enqueue({ json: { data: [{ id: 'mock-gpt' }] } });
+      const o4 = createBufferStream();
+      const e4 = createBufferStream();
+      expect(
+        await runCli(['node', 'reengine', 'models', 'localmock'], {
+          stdout: o4.stream,
+          stderr: e4.stream,
+        }),
+      ).toBe(0);
+      expect(o4.read()).toContain('localmock/mock-gpt');
+
+      const o5 = createBufferStream();
+      const e5 = createBufferStream();
+      expect(
+        await runCli(['node', 'reengine', 'providers', 'remove', 'localmock'], {
+          stdout: o5.stream,
+          stderr: e5.stream,
+        }),
+      ).toBe(0);
+    } finally {
+      await mock.close();
+    }
   });
 });

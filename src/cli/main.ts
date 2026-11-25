@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { Command, CommanderError } from 'commander';
 import { registerCompletionCommand } from './commands/completion.js';
 import { registerConfigCommand } from './commands/config.js';
+import { registerProvidersCommands } from './commands/providers.js';
 import { EXIT_CODES, mapErrorToExitCode } from './exit-codes.js';
 
 interface PackageMeta {
@@ -69,6 +70,7 @@ export async function runCli(
     });
 
   registerConfigCommand(program, io.stdout, io.stderr);
+  registerProvidersCommands(program, io.stdout);
   registerCompletionCommand(program, io.stdout);
 
   try {
