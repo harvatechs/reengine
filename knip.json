@@ -13,16 +13,13 @@
     "highlight.js",
     "ignore",
     "ink",
-    "jsonc-parser",
     "marked",
     "rea-agents",
     "react",
     "string-width",
     "undici",
     "wrap-ansi",
-    "zod",
     "@types/react",
-    "ink-testing-library",
-    "zod-to-json-schema"
+    "ink-testing-library"
   ]
 }

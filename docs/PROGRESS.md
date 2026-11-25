@@ -68,3 +68,6 @@
 | P1-02 | DONE | 2026-11-25 | [P1-02](progress/P1-02.md) | SHA-pinned CI, REA drift, CodeQL workflows, and Dependabot |
 | P1-03 | DONE | 2026-11-25 | [P1-03](progress/P1-03.md) | `src/util/` (`result`, `errors`, `redact`, `logger`, `clock`, `ids`, `abort`) + tests |
 | P1-04 | DONE | 2026-11-25 | [P1-04](progress/P1-04.md) | `src/platform/` (`paths`, `env`, `process`, `terminal`) + tests |
+| P1-05 | DONE | 2026-11-25 | [P1-05](progress/P1-05.md) | `src/config/` Zod schema, JSONC loader, migrations, `schemas/config.v1.schema.json` |
+| P1-06 | DONE | 2026-11-25 | [P1-06](progress/P1-06.md) | `src/config/secrets.ts` (`env:`, `file:`, `keychain:`, literal policy) |
+| P1-07 | DONE | 2026-11-25 | [P1-07](progress/P1-07.md) | `src/config/trust.ts` (`trust.json` gated-subset SHA-256) |
