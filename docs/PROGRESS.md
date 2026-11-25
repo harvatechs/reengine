@@ -25,8 +25,8 @@
 | **G2** | Phase 2 (Providers) | Shared contract suite green for 3 adapters on mock LLM; 12 presets validated; `providers test` works | `docs/gates/G2.md` | PASSED |
 | **G3** | Phase 3 (Core & Tools) | `reengine run` completes multi-step tool loop on mock LLM (permissions, spill, compaction, cancel, resume) | `docs/gates/G3.md` | PASSED |
 | **G4** | Phase 4 (MCP & REA) | Headless run analyzes JS fixture via real pinned REA; doctor, drift test, policy completeness, 0 orphans | `docs/gates/G4.md` | PASSED |
-| **G5** | Phase 5 (UI) | All FR-UI M items verified; `ink-testing-library` green; terminal restore & exporter golden tests pass | `docs/gates/G5.md` | PENDING |
-| **G6** | Phase 6 (RE Polish) | Evidence UI, asm highlighting, spill UX, `/report`, auto-snapshot, `REENGINE.md`/`/init`, first-run gate | `docs/gates/G6.md` | PENDING |
+| **G5** | Phase 5 (UI) | All FR-UI M items verified; `ink-testing-library` green; terminal restore & exporter golden tests pass | `docs/gates/G5.md` | PASSED |
+| **G6** | Phase 6 (RE Polish) | Evidence UI, asm highlighting, spill UX, `/report`, auto-snapshot, `REENGINE.md`/`/init`, first-run gate | `docs/gates/G6.md` | PASSED |
 | **G7** | Phase 7 (Release) | `acceptance-checklist.md` 100% ticked with evidence; perf budgets & SK-14 pass; pack/Docker/dry-run green | `docs/gates/G7.md` | PENDING |
 
 ---
@@ -76,3 +76,5 @@
 | P2-01..09 | DONE | 2026-11-25 | [P2-01](progress/P2-01.md) · [G2.md](gates/G2.md) | SSE parser, `HttpClient`, 3 provider adapters, 12 presets, `mock-llm`, contract suite, `providers`/`models` CLI (`gate-G2`) |
 | P3-01..13 | DONE | 2026-11-25 | [P3-01](progress/P3-01.md) · [G3.md](gates/G3.md) | Session/artifact store, tokens, prompt builder, permissions, built-in tools, compaction, agent loop, `run` & `sessions` CLI (`gate-G3`) |
 | P4-01..12 | DONE | 2026-11-25 | [P4-01](progress/P4-01.md) · [G4.md](gates/G4.md) | MCP manager/adapters, REA resolver/supervisor/doctor/targets/170-tool policy/evidence adapter, `engine` & `mcp` CLI, real REA e2e (`gate-G4`) |
+| P5-01..12 | DONE | 2026-11-25 | [P5-01](progress/P5-01.md) · [G5.md](gates/G5.md) | Ink 5/React 18 TUI, 5 themes, WCAG contrast, 7 terminal exporters, sanitizer, keybindings, lazy UI load (`gate-G5`) |
+| P6-01..08 | DONE | 2026-11-25 | [P6-01](progress/P6-01.md) · [G6.md](gates/G6.md) | Evidence UI badges, asm tokenizer, Inspector/DetailViewer, `doctor --json`, `report`, `setup` (`gate-G6`) |

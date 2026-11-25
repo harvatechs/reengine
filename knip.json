@@ -1,17 +1,7 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "entry": ["scripts/*.ts", "scripts/*.mjs"],
-  "project": ["src/**/*.ts", "test/**/*.ts", "scripts/**/*.ts"],
-  "ignoreDependencies": [
-    "execa",
-    "highlight.js",
-    "ink",
-    "marked",
-    "rea-agents",
-    "react",
-    "string-width",
-    "wrap-ansi",
-    "@types/react",
-    "ink-testing-library"
-  ]
+  "project": ["src/**/*.ts", "src/**/*.tsx", "test/**/*.ts", "test/**/*.tsx", "scripts/**/*.ts"],
+  "ignoreDependencies": ["execa", "highlight.js", "rea-agents"],
+  "ignoreExportsUsedInFile": true
 }

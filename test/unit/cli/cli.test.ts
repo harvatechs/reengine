@@ -206,4 +206,58 @@ describe('src/cli (P1-09)', () => {
       await mock.close();
     }
   });
+
+  it('supports theme list/validate/export, doctor --json, setup, and report (P5/P6)', async () => {
+    const o1 = createBufferStream();
+    const e1 = createBufferStream();
+    expect(
+      await runCli(['node', 'reengine', 'theme', 'list'], { stdout: o1.stream, stderr: e1.stream }),
+    ).toBe(0);
+    expect(o1.read()).toContain('reengine-dark');
+
+    const o2 = createBufferStream();
+    const e2 = createBufferStream();
+    expect(
+      await runCli(['node', 'reengine', 'theme', 'validate', 'reengine-dark'], {
+        stdout: o2.stream,
+        stderr: e2.stream,
+      }),
+    ).toBe(0);
+    expect(o2.read()).toContain('pass text.primary');
+
+    const o3 = createBufferStream();
+    const e3 = createBufferStream();
+    expect(
+      await runCli(['node', 'reengine', 'theme', 'export', '--terminal', 'kitty'], {
+        stdout: o3.stream,
+        stderr: e3.stream,
+      }),
+    ).toBe(0);
+    expect(o3.read()).toContain('foreground');
+
+    const o4 = createBufferStream();
+    const e4 = createBufferStream();
+    const docCode = await runCli(['node', 'reengine', 'doctor', '--json'], {
+      stdout: o4.stream,
+      stderr: e4.stream,
+    });
+    expect([0, 1]).toContain(docCode);
+    const docJson = JSON.parse(o4.read()) as { checks: Array<{ id: string }> };
+    expect(docJson.checks.some((c) => c.id === 'node-version')).toBe(true);
+
+    const o5 = createBufferStream();
+    const e5 = createBufferStream();
+    expect(
+      await runCli(['node', 'reengine', 'setup'], { stdout: o5.stream, stderr: e5.stream }),
+    ).toBe(0);
+    expect(o5.read()).toContain('Setup complete');
+
+    const o6 = createBufferStream();
+    const e6 = createBufferStream();
+    const repCode = await runCli(['node', 'reengine', 'report'], {
+      stdout: o6.stream,
+      stderr: e6.stream,
+    });
+    expect([0, 1]).toContain(repCode);
+  }, 20_000);
 });

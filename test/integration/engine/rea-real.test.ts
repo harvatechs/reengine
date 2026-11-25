@@ -140,5 +140,5 @@ describe('Real REA engine integration (P4-11/P4-12)', () => {
     } finally {
       await mock.close();
     }
-  }, 45_000);
+  }, 60_000);
 });

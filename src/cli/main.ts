@@ -4,11 +4,15 @@ import { fileURLToPath } from 'node:url';
 import { Command, CommanderError } from 'commander';
 import { registerCompletionCommand } from './commands/completion.js';
 import { registerConfigCommand } from './commands/config.js';
+import { registerDoctorCommand } from './commands/doctor.js';
 import { registerEngineCommands } from './commands/engine.js';
 import { registerMcpCommands } from './commands/mcp.js';
 import { registerProvidersCommands } from './commands/providers.js';
+import { registerReportCommand } from './commands/report.js';
 import { registerRunCommand } from './commands/run.js';
 import { registerSessionsCommand } from './commands/sessions.js';
+import { registerSetupCommand } from './commands/setup.js';
+import { registerThemeCommands } from './commands/theme.js';
 import { EXIT_CODES, mapErrorToExitCode } from './exit-codes.js';
 
 interface PackageMeta {
@@ -53,6 +57,7 @@ export async function runCli(
   program
     .name('reengine')
     .description('Model-agnostic reverse-engineering terminal harness')
+    .enablePositionalOptions()
     .version(meta.version, '-v, --version', 'Output ReEngine CLI version')
     .configureOutput({
       writeOut: (str) => {
@@ -79,7 +84,42 @@ export async function runCli(
   registerSessionsCommand(program, io.stdout);
   registerEngineCommands(program, io.stdout);
   registerMcpCommands(program, io.stdout);
+  registerThemeCommands(program, io.stdout);
+  registerDoctorCommand(program, io.stdout);
+  registerReportCommand(program, io.stdout);
+  registerSetupCommand(program, io.stdout);
   registerCompletionCommand(program, io.stdout);
+
+  program
+    .argument('[prompt]', 'Optional initial prompt for interactive TUI')
+    .option('-m, --model <ref>', 'Default model reference')
+    .option('--theme <name>', 'UI theme override')
+    .option('--plain', 'Accessible plain-text mode')
+    .option('--continue', 'Continue most recent session')
+    .option('--resume <id>', 'Resume session by id')
+    .action(
+      async (
+        prompt: string | undefined,
+        opts: {
+          model?: string;
+          theme?: string;
+          plain?: boolean;
+          continue?: boolean;
+          resume?: string;
+        },
+      ) => {
+        const { launchInteractiveSession } = await import('../app/interactive.js');
+        const code = await launchInteractiveSession({
+          ...(prompt ? { initialPrompt: prompt } : {}),
+          ...(opts.model ? { model: opts.model } : {}),
+          ...(opts.theme ? { themeName: opts.theme } : {}),
+          ...(opts.plain ? { plain: opts.plain } : {}),
+          ...(opts.continue ? { continueLatest: opts.continue } : {}),
+          ...(opts.resume ? { resumeId: opts.resume } : {}),
+        });
+        process.exitCode = code;
+      },
+    );
 
   try {
     await program.parseAsync([...argv]);

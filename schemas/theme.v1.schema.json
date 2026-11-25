@@ -1,0 +1,413 @@
+{
+  "$ref": "#/definitions/ReEngineThemeV1",
+  "definitions": {
+    "ReEngineThemeV1": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number",
+          "const": 1,
+          "default": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "extends": {
+          "type": "string",
+          "minLength": 1
+        },
+        "surfaceBackground": {
+          "type": "string",
+          "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "object",
+              "properties": {
+                "primary": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "muted": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "dim": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "inverse": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "primary",
+                "muted",
+                "dim",
+                "inverse"
+              ],
+              "additionalProperties": false
+            },
+            "brand": {
+              "type": "object",
+              "properties": {
+                "accent": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "accentAlt": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "accent",
+                "accentAlt"
+              ],
+              "additionalProperties": false
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "warning": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "danger": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "info": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "success",
+                "warning",
+                "danger",
+                "info"
+              ],
+              "additionalProperties": false
+            },
+            "surface": {
+              "type": "object",
+              "properties": {
+                "border": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "borderFocus": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "codeBg": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "selectionBg": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "border",
+                "borderFocus",
+                "codeBg",
+                "selectionBg"
+              ],
+              "additionalProperties": false
+            },
+            "chat": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "assistant": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "system": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "reasoning": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "user",
+                "assistant",
+                "system",
+                "reasoning"
+              ],
+              "additionalProperties": false
+            },
+            "tool": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "pending": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "running": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "success": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "error": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "name",
+                "pending",
+                "running",
+                "success",
+                "error"
+              ],
+              "additionalProperties": false
+            },
+            "diff": {
+              "type": "object",
+              "properties": {
+                "add": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "remove": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "addBg": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "removeBg": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "hunk": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "add",
+                "remove",
+                "addBg",
+                "removeBg",
+                "hunk"
+              ],
+              "additionalProperties": false
+            },
+            "syntax": {
+              "type": "object",
+              "properties": {
+                "keyword": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "string": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "number": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "comment": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "function": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "type": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "operator": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "variable": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "punctuation": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "keyword",
+                "string",
+                "number",
+                "comment",
+                "function",
+                "type",
+                "operator",
+                "variable",
+                "punctuation"
+              ],
+              "additionalProperties": false
+            },
+            "asm": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "bytes": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "mnemonic": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "register": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "immediate": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "label": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "string": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "comment": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "address",
+                "bytes",
+                "mnemonic",
+                "register",
+                "immediate",
+                "label",
+                "string",
+                "comment"
+              ],
+              "additionalProperties": false
+            },
+            "evidence": {
+              "type": "object",
+              "properties": {
+                "accent": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "observed": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "inferred": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                },
+                "unknown": {
+                  "type": "string",
+                  "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+                }
+              },
+              "required": [
+                "accent",
+                "observed",
+                "inferred",
+                "unknown"
+              ],
+              "additionalProperties": false
+            },
+            "link": {
+              "type": "string",
+              "pattern": "^(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}|ansi:[a-zA-Z]+|inherit)$"
+            }
+          },
+          "required": [
+            "text",
+            "brand",
+            "status",
+            "surface",
+            "chat",
+            "tool",
+            "diff",
+            "syntax",
+            "asm",
+            "evidence",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "textStyles": {
+          "type": "object",
+          "properties": {
+            "emphasis": {
+              "type": "string",
+              "default": "bold"
+            },
+            "heading": {
+              "type": "string",
+              "default": "bold"
+            },
+            "link": {
+              "type": "string",
+              "default": "underline"
+            },
+            "muted": {
+              "type": "string",
+              "default": "dim"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "glyphOverrides": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "colors"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
