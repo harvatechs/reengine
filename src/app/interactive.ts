@@ -20,6 +20,10 @@ function resolveInteractiveSessionId(
   return undefined;
 }
 
+function isInteractiveTty(): boolean {
+  return process.stdin.isTTY && process.stdout.isTTY;
+}
+
 export async function launchInteractiveSession(options: {
   initialPrompt?: string;
   cwd?: string;
@@ -39,7 +43,7 @@ export async function launchInteractiveSession(options: {
     paths.themesDir,
   );
 
-  if (!config.model.default && !options.model) {
+  if (!config.model.default && !options.model && !isInteractiveTty()) {
     process.stdout.write(
       'First-run setup needed: no default model configured. Run `reengine setup` or pass `--model <provider/model>`.\n',
     );
@@ -53,9 +57,11 @@ export async function launchInteractiveSession(options: {
   const sessionId = resolveInteractiveSessionId(paths.sessionsDir, options);
 
   const modelRef = options.model ?? config.model.default ?? 'unconfigured';
+  const setupHint =
+    modelRef === 'unconfigured' ? ' · run `reengine setup` to configure a model' : '';
   const appInstance = render(
     React.createElement(ReengineApp, {
-      banner: `ReEngine 0.1.0 · REA 6.4.0 · ${os.platform()} · type /help${sessionId ? ` · session ${sessionId}` : ''}`,
+      banner: `ReEngine 0.1.0 · REA 6.4.0 · ${os.platform()} · type /help${setupHint}${sessionId ? ` · session ${sessionId}` : ''}`,
       initialMode: config.permissions.mode,
       model: modelRef,
       cwd: path.resolve(cwd),

@@ -16,8 +16,10 @@ const exePath = path.join(outDir, process.platform === 'win32' ? 'reengine.exe' 
 const seaCompatPlugin = {
   name: 'sea-compat',
   setup(b) {
-    b.onResolve({ filter: /^yoga-wasm-web(\/auto)?$/ }, () => ({
-      path: path.join(root, 'node_modules/yoga-wasm-web/dist/asm.js'),
+    b.onLoad({ filter: /yoga-wasm-web[\\/]dist[\\/]node\.js$/ }, () => ({
+      contents:
+        "export * from './asm.js'; import initYoga from './asm.js'; const Yoga = initYoga(); export default Yoga;",
+      loader: 'js',
     }));
     b.onResolve({ filter: /^jsonc-parser$/ }, () => ({
       path: path.join(root, 'node_modules/jsonc-parser/lib/esm/main.js'),
