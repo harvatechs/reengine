@@ -163,6 +163,8 @@ async function main(): Promise<void> {
 }
 
 main().catch((err) => {
-  process.stderr.write(`Contract capture failed: ${err instanceof Error ? err.stack : String(err)}\n`);
+  process.stderr.write(
+    `Contract capture failed: ${err instanceof Error ? err.stack : String(err)}\n`,
+  );
   process.exit(1);
 });

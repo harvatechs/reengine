@@ -1,0 +1,92 @@
+{
+  "name": "reengine-cli",
+  "version": "0.1.0",
+  "description": "Open reverse-engineering harness: any model, REA built in, themeable terminal UI.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "reengine": "bin/reengine.js",
+    "ree": "bin/reengine.js"
+  },
+  "engines": {
+    "node": "^22.19.0 || ^24.11.0 || >=26"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "schemas",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/cli/main.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "deps:check": "depcruise src --config .dependency-cruiser.cjs",
+    "unused": "knip",
+    "schema:gen": "tsx scripts/gen-schemas.ts",
+    "schema:check": "npm run schema:gen && git diff --exit-code schemas",
+    "test": "vitest run",
+    "test:e2e": "vitest run --project e2e",
+    "test:rea": "vitest run --project rea-real",
+    "contract:rea": "tsx scripts/capture-rea-contract.ts --check",
+    "pack:check": "tsx scripts/check-pack.ts",
+    "verify": "npm run typecheck && npm run lint && npm run format:check && npm run deps:check && npm run unused && npm run schema:check && vitest run --coverage && npm run build && npm run pack:check",
+    "prepack": "npm run build",
+    "prepare": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint && npm run typecheck"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "commander": "13.1.0",
+    "diff": "9.0.0",
+    "execa": "10.2.1",
+    "fast-glob": "3.3.3",
+    "highlight.js": "11.12.0",
+    "ignore": "7.0.16",
+    "ink": "5.1.0",
+    "jsonc-parser": "3.3.1",
+    "marked": "18.3.0",
+    "pino": "10.4.0",
+    "rea-agents": "6.4.0",
+    "react": "18.3.1",
+    "string-width": "9.0.0",
+    "undici": "8.13.1",
+    "wrap-ansi": "10.0.2",
+    "zod": "3.25.76"
+  },
+  "optionalDependencies": {
+    "@napi-rs/keyring": "2.1.2"
+  },
+  "devDependencies": {
+    "@changesets/cli": "3.0.3",
+    "@types/node": "22.13.9",
+    "@types/react": "18.3.18",
+    "@vitest/coverage-v8": "3.0.7",
+    "dependency-cruiser": "18.9.0",
+    "eslint": "10.15.0",
+    "ink-testing-library": "4.0.0",
+    "knip": "6.48.0",
+    "prettier": "3.10.1",
+    "simple-git-hooks": "2.14.0",
+    "tsup": "8.4.0",
+    "tsx": "4.23.15",
+    "typescript": "5.8.2",
+    "typescript-eslint": "8.74.0",
+    "vitest": "3.0.7",
+    "zod-to-json-schema": "3.25.2"
+  }
+}

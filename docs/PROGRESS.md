@@ -19,7 +19,7 @@
 
 | Gate | Phase | Pass Criteria | Artifact | Status |
 |---|---|---|---|---|
-| **G0** | Phase 0 (Discovery) | P0-01…P0-10 complete; REA CLI/MCP & provider wire fixtures + contract docs committed; deps pinned; A1–A5 logged | `docs/gates/G0.md` | IN PROGRESS |
+| **G0** | Phase 0 (Discovery) | P0-01…P0-10 complete; REA CLI/MCP & provider wire fixtures + contract docs committed; deps pinned; A1–A5 logged | `docs/gates/G0.md` | PASSED |
 | **G1** | Phase 1 (Foundation) | CI green on 3 OS × Node 22/24; `version`/`config` work; layering, trust, secrets, schema parity pass | `docs/gates/G1.md` | PENDING |
 | **G1.5** | Contracts Freeze | `src/core/contracts.ts` matches `specs.md` §4 + type tests; tagged `gate-G1.5` | `docs/gates/G1.5.md` | PENDING |
 | **G2** | Phase 2 (Providers) | Shared contract suite green for 3 adapters on mock LLM; 12 presets validated; `providers test` works | `docs/gates/G2.md` | PENDING |
@@ -64,3 +64,7 @@
 | P0-08 | DONE | 2026-11-25 | [P0-08](progress/P0-08.md) · [dependencies.md](contracts/dependencies.md) | Pinned 19 runtime deps + 1 optional + dev deps |
 | P0-09 | DONE | 2026-11-25 | [P0-09](progress/P0-09.md) · [ux-reference.md](contracts/ux-reference.md) | Clean-room UX reference checklist |
 | P0-10 | DONE | 2026-11-25 | [G0.md](gates/G0.md) · [G0-security.md](gates/G0-security.md) | Gate G0 PASSED (`gate-G0`) |
+| P1-01 | DONE | 2026-11-25 | [P1-01](progress/P1-01.md) | Single-package TS/ESLint/Prettier/depcruise/knip/vitest/tsup scaffold |
+| P1-02 | DONE | 2026-11-25 | [P1-02](progress/P1-02.md) | SHA-pinned CI, REA drift, CodeQL workflows, and Dependabot |
+| P1-03 | DONE | 2026-11-25 | [P1-03](progress/P1-03.md) | `src/util/` (`result`, `errors`, `redact`, `logger`, `clock`, `ids`, `abort`) + tests |
+| P1-04 | DONE | 2026-11-25 | [P1-04](progress/P1-04.md) | `src/platform/` (`paths`, `env`, `process`, `terminal`) + tests |

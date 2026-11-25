@@ -1,0 +1,37 @@
+import { defineConfig } from 'tsup';
+
+export default defineConfig({
+  entry: { cli: 'src/cli/main.ts' },
+  format: ['esm'],
+  target: 'node22',
+  platform: 'node',
+  sourcemap: true,
+  splitting: true,
+  clean: true,
+  dts: false,
+  loader: {
+    '.md': 'text',
+  },
+  external: [
+    '@modelcontextprotocol/sdk',
+    '@napi-rs/keyring',
+    'ajv',
+    'ajv-formats',
+    'commander',
+    'diff',
+    'execa',
+    'fast-glob',
+    'highlight.js',
+    'ignore',
+    'ink',
+    'jsonc-parser',
+    'marked',
+    'pino',
+    'rea-agents',
+    'react',
+    'string-width',
+    'undici',
+    'wrap-ansi',
+    'zod',
+  ],
+});

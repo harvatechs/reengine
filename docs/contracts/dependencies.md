@@ -11,7 +11,7 @@ All runtime dependencies are pinned with exact versions (no `^` or `~`).
 | `react` | `18.3.1` | MIT | ~315 KB | Required by `ink@5.1.0` |
 | `@modelcontextprotocol/sdk` | `1.32.2` | MIT | 4.49 MB | Verified in P0-03 against `rea@6.4.0` |
 | `rea-agents` | `6.4.0` | MIT | ~180 MB | Built-in REA engine (excluded from 25 MB `NFR-DIST-01`; `CP-1`) |
-| `zod` | `3.24.2` | MIT | ~650 KB | Compatible with `zod-to-json-schema@3.25.2` |
+| `zod` | `3.25.76` | MIT | ~650 KB | Compatible with `zod-to-json-schema@3.25.2` & MCP SDK |
 | `ajv` | `8.20.0` | MIT | 1.03 MB | Runtime tool-arg JSON Schema validation |
 | `ajv-formats` | `3.0.1` | MIT | 57 KB | Format validators for Ajv |
 | `commander` | `13.1.0` | MIT | ~190 KB | CLI parser (ADR-016) |

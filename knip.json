@@ -1,0 +1,28 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["scripts/*.ts"],
+  "project": ["src/**/*.ts", "test/**/*.ts", "scripts/**/*.ts"],
+  "ignoreDependencies": [
+    "@modelcontextprotocol/sdk",
+    "ajv",
+    "ajv-formats",
+    "commander",
+    "diff",
+    "execa",
+    "fast-glob",
+    "highlight.js",
+    "ignore",
+    "ink",
+    "jsonc-parser",
+    "marked",
+    "rea-agents",
+    "react",
+    "string-width",
+    "undici",
+    "wrap-ansi",
+    "zod",
+    "@types/react",
+    "ink-testing-library",
+    "zod-to-json-schema"
+  ]
+}
