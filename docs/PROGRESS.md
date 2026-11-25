@@ -21,7 +21,7 @@
 |---|---|---|---|---|
 | **G0** | Phase 0 (Discovery) | P0-01…P0-10 complete; REA CLI/MCP & provider wire fixtures + contract docs committed; deps pinned; A1–A5 logged | `docs/gates/G0.md` | PASSED |
 | **G1** | Phase 1 (Foundation) | CI green on 3 OS × Node 22/24; `version`/`config` work; layering, trust, secrets, schema parity pass | `docs/gates/G1.md` | PENDING |
-| **G1.5** | Contracts Freeze | `src/core/contracts.ts` matches `specs.md` §4 + type tests; tagged `gate-G1.5` | `docs/gates/G1.5.md` | PENDING |
+| **G1.5** | Contracts Freeze | `src/core/contracts.ts` matches `specs.md` §4 + type tests; tagged `gate-G1.5` | `docs/gates/G1.5.md` | PASSED |
 | **G2** | Phase 2 (Providers) | Shared contract suite green for 3 adapters on mock LLM; 12 presets validated; `providers test` works | `docs/gates/G2.md` | PENDING |
 | **G3** | Phase 3 (Core & Tools) | `reengine run` completes multi-step tool loop on mock LLM (permissions, spill, compaction, cancel, resume) | `docs/gates/G3.md` | PENDING |
 | **G4** | Phase 4 (MCP & REA) | Headless run analyzes JS fixture via real pinned REA; doctor, drift test, policy completeness, 0 orphans | `docs/gates/G4.md` | PENDING |
@@ -71,3 +71,4 @@
 | P1-05 | DONE | 2026-11-25 | [P1-05](progress/P1-05.md) | `src/config/` Zod schema, JSONC loader, migrations, `schemas/config.v1.schema.json` |
 | P1-06 | DONE | 2026-11-25 | [P1-06](progress/P1-06.md) | `src/config/secrets.ts` (`env:`, `file:`, `keychain:`, literal policy) |
 | P1-07 | DONE | 2026-11-25 | [P1-07](progress/P1-07.md) | `src/config/trust.ts` (`trust.json` gated-subset SHA-256) |
+| P1-08 | DONE | 2026-11-25 | [P1-08](progress/P1-08.md) · [G1.5.md](gates/G1.5.md) | `src/core/contracts.ts` frozen (`gate-G1.5`) |
